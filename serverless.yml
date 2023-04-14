@@ -1,0 +1,28 @@
+service: rs-cart-api
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: eu-west-2
+
+functions:
+  main:
+    handler: dist/main.handler
+    events:
+      - http:
+          method: GET
+          path: /
+      - http:
+          method: GET
+          path: /ping
+      - http:
+          method: POST
+          path: 'api/auth/login'
+      - http:
+          method: GET
+          path: 'api/profile'
