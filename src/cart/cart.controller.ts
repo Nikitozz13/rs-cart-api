@@ -80,8 +80,8 @@ export class CartController {
       cartId,
       items,
       total,
+      status: 'ORDERED',
     });
-    this.cartService.removeByUserId(userId);
 
     return {
       statusCode: HttpStatus.OK,
