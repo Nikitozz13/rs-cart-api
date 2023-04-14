@@ -3,14 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 import { Cart } from './entities/cart.entity';
 import { CartItem } from './entities/cart-item.entity';
-
-console.log('DATABASE_MODULE', {
-  host: process.env.DATABASE_HOST,
-  port: +process.env.DATABASE_PORT,
-  username: process.env.DATABASE_USERNAME,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE_NAME,
-});
+import { Order } from './entities/order.entity';
 
 @Module({
   imports: [
@@ -32,7 +25,7 @@ console.log('DATABASE_MODULE', {
        */
       namingStrategy: new SnakeNamingStrategy(),
     }),
-    TypeOrmModule.forFeature([Cart, CartItem]),
+    TypeOrmModule.forFeature([Cart, CartItem, Order]),
   ],
   exports: [TypeOrmModule],
 })

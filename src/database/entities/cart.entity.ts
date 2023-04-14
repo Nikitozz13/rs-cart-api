@@ -6,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { CartItem } from './cart-item.entity';
+import { Order } from './order.entity';
 
 @Entity()
 export class Cart {
@@ -29,4 +30,8 @@ export class Cart {
   @OneToMany(() => CartItem, (cartItem) => cartItem.cart)
   @JoinColumn({ name: 'id', referencedColumnName: 'cart_id' })
   items: CartItem[];
+
+  @OneToMany(() => Order, (order) => order.cart)
+  @JoinColumn({ name: 'id', referencedColumnName: 'cart_id' })
+  order: Order;
 }
