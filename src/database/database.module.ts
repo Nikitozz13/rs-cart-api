@@ -4,6 +4,7 @@ import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 import { Cart } from './entities/cart.entity';
 import { CartItem } from './entities/cart-item.entity';
 import { Order } from './entities/order.entity';
+import { User } from './entities/user.entity';
 
 @Module({
   imports: [
@@ -25,7 +26,7 @@ import { Order } from './entities/order.entity';
        */
       namingStrategy: new SnakeNamingStrategy(),
     }),
-    TypeOrmModule.forFeature([Cart, CartItem, Order]),
+    TypeOrmModule.forFeature([Cart, CartItem, Order, User]),
   ],
   exports: [TypeOrmModule],
 })
